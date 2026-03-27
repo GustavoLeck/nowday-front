@@ -4,7 +4,6 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableFooter,
   TableHeader,
   TableHeaderCell,
   TableProps,
@@ -86,12 +85,10 @@ export function ListClienteView() {
           const k = key as keyof DummyDataType;
           const tcKey = `${tableCellData.id}-${k}`;
 
-          // Não renderiza a coluna ID
           if (k === "id") {
             return null;
           }
 
-          // Renderiza ícones na coluna de ações
           if (k === "acoes") {
             return (
               <TableCell key={tcKey} headerLabel={k}>
@@ -168,14 +165,14 @@ export function ListClienteView() {
         <div className="pt-64 mb-8">
           <h1
             className="text-2xl font-bold mb-4 text "
-            style={{ color: "#034ad8" }}
+            style={{ color: "#021C51" }}
           >
             Clientes
           </h1>
         </div>
         <div className="flex items-end justify-between">
           <div className="pb-16 w-1/3">
-            <a style={{ color: "#034ad8" }}>Pesquisar cliente</a>
+            <a style={{ color: "#021C51" }}>Pesquisar cliente</a>
             <InputSearch></InputSearch>
           </div>
           <div className="pb-16">

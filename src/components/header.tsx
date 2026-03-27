@@ -13,7 +13,6 @@ import {
   DefaultSearch,
   GeneralBar,
   Header,
-  NavigationBar,
   Search,
   SearchInputContainer,
   SearchRelatedLink,
