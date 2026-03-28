@@ -18,7 +18,6 @@ interface ClienteForm {
 
 export function FormClienteView({ type }: FormClienteViewProps) {
   const { id } = useParams();
-  const idCliente = id ? Number(id) : null;
 
   const [formData, setFormData] = useState<ClienteForm>({
     nome: "",
@@ -38,7 +37,7 @@ export function FormClienteView({ type }: FormClienteViewProps) {
   const ListItensBreadcrump = [{ label: "Clientes", url: "/clientes" }];
 
   if (type === "edit") {
-    ListItensBreadcrump.push({ label: "Detalhes do Cliente", url: "" });
+    ListItensBreadcrump.push({ label: "Editar do Cliente", url: "" });
   }
 
   if (type === "create") {

@@ -10,14 +10,13 @@ import {
   TableRow,
   InputSearch,
   Button,
-  Dialog,
 } from "@ama-pt/agora-design-system";
-import { DeleteClientModal } from "./deleteClientModal";
+import { DeleteDialog } from "../components/deleteDialog";
 
 export function ListClienteView() {
   interface DummyDataType {
     id: number;
-    name: string;
+    nome: string;
     morada: string;
     telefone: string;
     acoes: string;
@@ -26,14 +25,14 @@ export function ListClienteView() {
   const DUMMY_DATA: Array<DummyDataType> = [
     {
       id: 1,
-      name: "Ana Sofia Pereira Martins",
+      nome: "Ana Sofia Pereira Martins",
       morada: "Rua das Flores 125, 3º Esq., 1200-164 Lisboa",
       telefone: "912 345 678",
       acoes: "Vizualizar | Editar | Eliminar",
     },
     {
       id: 2,
-      name: "João Pedro Almeida Costa",
+      nome: "João Pedro Almeida Costa",
       morada:
         "Fri Jan 05 2024 00:05:05 GMT+0000 (Hora padrão da Europa Ocidental)",
       telefone: "86ea7890-f16c-4945-a50d-bdfedf84aac4",
@@ -41,7 +40,7 @@ export function ListClienteView() {
     },
     {
       id: 3,
-      name: "Ana Sofia Pereira Martins",
+      nome: "Ana Sofia Pereira Martins",
       morada:
         "Tue Jan 16 2024 15:18:05 GMT+0000 (Hora padrão da Europa Ocidental)",
       telefone: "ae223f48-3dfe-46d4-8eb3-ef88cf9e404d",
@@ -49,7 +48,7 @@ export function ListClienteView() {
     },
     {
       id: 4,
-      name: "Cliente 3",
+      nome: "Cliente 3",
       morada:
         "Wed Jan 10 2024 09:14:32 GMT+0000 (Hora padrão da Europa Ocidental)",
       telefone: "77f85ef3-4219-4621-8f15-40e5b0a5eba0",
@@ -57,7 +56,7 @@ export function ListClienteView() {
     },
     {
       id: 5,
-      name: "Cliente 4",
+      nome: "Cliente 4",
       morada:
         "Sun Jan 21 2024 23:54:22 GMT+0000 (Hora padrão da Europa Ocidental)",
       telefone: "0ecd011a-b72f-4dac-9ad3-bbe34d84d90a",
@@ -100,6 +99,9 @@ export function ListClienteView() {
                     variant="tertiary"
                     size="small"
                     aria-label="Visualizar"
+                    onClick={() =>
+                      navigate(`/clientes/view/${tableCellData.id}`)
+                    }
                   />
                   <Button
                     hasIcon={true}
@@ -216,14 +218,7 @@ export function ListClienteView() {
           </Table>
         </div>
 
-        <Dialog
-          visible={isDeleteModalOpen}
-          dismissOnBackdropClick={true}
-          dismissOnEscape={true}
-          onHide={() => setIsDeleteModalOpen(false)}
-        >
-          <DeleteClientModal />
-        </Dialog>
+        <DeleteDialog setIsDeleteModalOpen={}></DeleteDialog>
       </>
     );
   };
